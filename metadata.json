@@ -1,0 +1,6 @@
+{
+  "name": "Kiosko Interactivo Wyndham Bogotá",
+  "description": "Plataforma interactiva premium para kioskos touch en el Hotel Wyndham Bogotá, que permite explorar salones, habitaciones, experiencias y recorridos virtuales Matterport.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

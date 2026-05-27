@@ -10,7 +10,6 @@ import { useEffect } from "react";
 import Home from "./pages/Home";
 import Venues from "./pages/Venues";
 import VenueDetail from "./pages/VenueDetail";
-import OngoingEvents from "./pages/OngoingEvents";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -48,7 +47,6 @@ function KioskShell() {
             <Route path="/" element={<Home />} />
             <Route path="/salones" element={<Venues />} />
             <Route path="/salones/:id" element={<VenueDetail />} />
-            <Route path="/eventos-en-curso" element={<OngoingEvents />} />
           </Routes>
         </AnimatedTransitions>
       </main>

@@ -27,17 +27,6 @@ export default function Home() {
       isNavigable: true
     },
     {
-      id: "cat-active-events",
-      title: "Eventos en Curso Hoy",
-      desc: "Consulte los congresos, seminarios académicos e itinerarios activos en tiempo real dentro del complejo.",
-      link: "/eventos-en-curso",
-      icon: Clock,
-      img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
-      accent: "from-[#1E88C8]/95 to-[#004B75]/95",
-      badge: "Monitoreo en Vivo",
-      isNavigable: true
-    },
-    {
       id: "cat-rooms",
       title: "Habitaciones & Suites Ejecutivas",
       desc: "Espacios de diseño moderno pensados para el descanso del viajero de negocios. conectividad WiFi de alta velocidad y escritorio de trabajo ergonómico.",
@@ -126,7 +115,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {mainCategories.map((cat) => {
             const Icon = cat.icon;
             

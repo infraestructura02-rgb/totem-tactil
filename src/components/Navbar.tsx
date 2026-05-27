@@ -4,7 +4,7 @@
  */
 
 import { Link, useLocation } from "react-router-dom";
-import { Building, Home, Compass, Clock } from "lucide-react";
+import { Building, Home, Compass } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function Navbar() {
@@ -17,13 +17,6 @@ export default function Navbar() {
       shortLabel: "Salones",
       icon: Building,
       color: "border-[#004B75] text-[#004B75]"
-    },
-    {
-      path: "/eventos-en-curso",
-      label: "Eventos en curso",
-      shortLabel: "En Curso",
-      icon: Clock,
-      color: "border-[#1E88C8] text-[#1E88C8]"
     }
   ];
 

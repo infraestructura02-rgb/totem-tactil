@@ -4,8 +4,9 @@
  */
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 interface VenueGalleryProps {
   images: string[];
@@ -14,6 +15,7 @@ interface VenueGalleryProps {
 
 export default function VenueGallery({ images, title }: VenueGalleryProps) {
   const [activeIdx, setActiveIdx] = useState(0);
+  const { t } = useLanguage();
 
   const viewNext = () => {
     setActiveIdx((prev) => (prev + 1) % images.length);
@@ -26,7 +28,7 @@ export default function VenueGallery({ images, title }: VenueGalleryProps) {
   if (!images || images.length === 0) {
     return (
       <div className="aspect-video w-full rounded-2xl bg-gray-100 flex items-center justify-center text-gray-400">
-        Sin imágenes disponibles
+        {t("no_images")}
       </div>
     );
   }
@@ -40,7 +42,7 @@ export default function VenueGallery({ images, title }: VenueGalleryProps) {
             id={`gallery-active-image-${activeIdx}`}
             key={images[activeIdx]}
             src={images[activeIdx]}
-            alt={`${title} - Vista ${activeIdx + 1}`}
+            alt={`${title} - ${t("view")} ${activeIdx + 1}`}
             className="h-full w-full object-cover select-none"
             initial={{ opacity: 0, scale: 1.03 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -55,7 +57,7 @@ export default function VenueGallery({ images, title }: VenueGalleryProps) {
 
         {/* Caption */}
         <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg text-white font-sans text-xs">
-          Imágenes Premium • {activeIdx + 1} de {images.length}
+          {t("premium_images")} • {activeIdx + 1} {t("of")} {images.length}
         </div>
 
         {/* Touch nav arrows */}
@@ -64,7 +66,7 @@ export default function VenueGallery({ images, title }: VenueGalleryProps) {
             id="gallery-prev-btn"
             onClick={viewPrev}
             className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 text-gray-800 shadow-md backdrop-blur-sm active:scale-90 select-none hover:bg-white"
-            aria-label="Imagen anterior"
+            aria-label={t("prev_image")}
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
@@ -75,7 +77,7 @@ export default function VenueGallery({ images, title }: VenueGalleryProps) {
             id="gallery-next-btn"
             onClick={viewNext}
             className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 text-gray-800 shadow-md backdrop-blur-sm active:scale-90 select-none hover:bg-white"
-            aria-label="Siguiente imagen"
+            aria-label={t("next_image")}
           >
             <ChevronRight className="h-6 w-6" />
           </button>
@@ -99,7 +101,7 @@ export default function VenueGallery({ images, title }: VenueGalleryProps) {
             >
               <img
                 src={img}
-                alt={`${title} miniatura ${idx + 1}`}
+                alt={`${title} ${t("thumbnail")} ${idx + 1}`}
                 className="h-full w-full object-cover object-center"
                 referrerPolicy="no-referrer"
               />

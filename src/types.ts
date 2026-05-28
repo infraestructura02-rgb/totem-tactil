@@ -5,6 +5,7 @@
 
 export interface SetupCapability {
   type: string;
+  typeEn?: string;
   capacity: number;
   iconName: string;
 }
@@ -12,16 +13,21 @@ export interface SetupCapability {
 export interface SalonVenue {
   id: string;
   name: string;
+  nameEn?: string;
   description: string;
+  descriptionEn?: string;
   capacity: number;
   dimensions: string;
   floor: string;
+  floorEn?: string;
   image: string;
   gallery: string[];
   matterportUrl: string;
   amenities: string[];
+  amenitiesEn?: string[];
   setups: SetupCapability[];
   locationDesc: string;
+  locationDescEn?: string;
 }
 
 export interface HotelRoom {

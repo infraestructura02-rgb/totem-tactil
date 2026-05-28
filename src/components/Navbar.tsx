@@ -4,21 +4,13 @@
  */
 
 import { Link, useLocation } from "react-router-dom";
-import { Building, Home, Compass } from "lucide-react";
+import { Building, Home, Compass, Globe } from "lucide-react";
 import { motion } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
   const location = useLocation();
-
-  const navigationItems = [
-    {
-      path: "/salones",
-      label: "Salones & Eventos",
-      shortLabel: "Salones",
-      icon: Building,
-      color: "border-[#004B75] text-[#004B75]"
-    }
-  ];
+  const { language, setLanguage, t } = useLanguage();
 
   const isHome = location.pathname === "/";
 
@@ -70,38 +62,59 @@ export default function Navbar() {
               }`}
             >
               <Home className="h-4.5 w-4.5" />
-              <span className="hidden leading-none sm:inline">Inicio</span>
+              <span className="hidden leading-none sm:inline">{t("home")}</span>
             </Link>
 
-            {navigationItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = location.pathname.startsWith(item.path);
+            <Link
+              id="nav-salones"
+              to="/salones"
+              className={`relative flex items-center gap-2 rounded-xl px-4 py-3 font-sans text-sm transition-all duration-200 active:scale-95 ${
+                location.pathname.startsWith("/salones")
+                  ? "bg-[#004B75] text-white font-semibold shadow-md shadow-blue-900/15"
+                  : "text-gray-600 hover:bg-gray-50 font-medium"
+              }`}
+            >
+              <Building className="h-4.5 w-4.5" />
+              <span className="hidden md:inline leading-none">{t("venues")}</span>
+              <span className="inline md:hidden leading-none">{t("venues").split(" ")[0]}</span>
+              
+              {location.pathname.startsWith("/salones") && (
+                <motion.div
+                  layoutId="activeNavIndicator"
+                  className="absolute -bottom-1 left-4 right-4 h-1 rounded-full bg-[#1E88C8]"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </Link>
 
-              return (
-                <Link
-                  id={`nav-${item.path.slice(1)}`}
-                  key={item.path}
-                  to={item.path}
-                  className={`relative flex items-center gap-2 rounded-xl px-4 py-3 font-sans text-sm transition-all duration-200 active:scale-95 ${
-                    isActive
-                      ? "bg-[#004B75] text-white font-semibold shadow-md shadow-blue-900/15"
-                      : "text-gray-600 hover:bg-gray-50 font-medium"
+            {/* Language Switcher Pill next to the button "Salones & Eventos" */}
+            <div className="flex items-center bg-gray-50 border border-gray-150 p-1 md:p-1.5 rounded-xl ml-1 shadow-xs hover:border-gray-200 transition">
+              <Globe className="h-4 w-4 text-[#004B75] mx-1 shrink-0" />
+              <div className="flex bg-white p-0.5 rounded-lg border border-gray-100">
+                <button
+                  id="lang-btn-es"
+                  onClick={() => setLanguage("es")}
+                  className={`px-2 py-1 text-[11px] font-sans font-bold rounded-md transition-all active:scale-90 ${
+                    language === "es"
+                      ? "bg-[#004B75] text-white shadow-xs"
+                      : "text-gray-400 hover:text-gray-800"
                   }`}
                 >
-                  <Icon className="h-4.5 w-4.5" />
-                  <span className="hidden md:inline leading-none">{item.label}</span>
-                  <span className="inline md:hidden leading-none">{item.shortLabel}</span>
-                  
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute -bottom-1 left-4 right-4 h-1 rounded-full bg-[#1E88C8]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
+                  ES
+                </button>
+                <button
+                  id="lang-btn-en"
+                  onClick={() => setLanguage("en")}
+                  className={`px-2 py-1 text-[11px] font-sans font-bold rounded-md transition-all active:scale-90 ${
+                    language === "en"
+                      ? "bg-[#004B75] text-white shadow-xs"
+                      : "text-gray-400 hover:text-gray-800"
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

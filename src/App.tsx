@@ -5,6 +5,7 @@
 
 import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { LanguageProvider } from "./context/LanguageContext";
 
 // Pages
 import Home from "./pages/Home";
@@ -62,8 +63,10 @@ function KioskShell() {
 
 export default function App() {
   return (
-    <Router>
-      <KioskShell />
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <KioskShell />
+      </Router>
+    </LanguageProvider>
   );
 }

@@ -10,10 +10,13 @@ export const SALONES_DATA: SalonVenue[] = [
   {
     id: "salon-tejada",
     name: "Salón Tejada",
+    nameEn: "Tejada Room",
     description: "Espacio ejecutivo moderno ubicado en el Sótano 1, ideal para capacitaciones y juntas corporativas de mediano tamaño con total control acústico y aislamiento.",
+    descriptionEn: "Modern executive space located on Basement 1, ideal for training sessions and medium-sized corporate boards with total acoustic control and noise isolation.",
     capacity: 60,
     dimensions: "9m x 8m (72 m²)",
     floor: "Sótano 1",
+    floorEn: "Basement 1",
     image: "https://my.matterport.com/resources/model/tQfLxhXfVNX/image/zYsnt9ksN2t",
     gallery: [
       "https://my.matterport.com/resources/model/tQfLxhXfVNX/image/zYsnt9ksN2t"
@@ -24,19 +27,28 @@ export const SALONES_DATA: SalonVenue[] = [
       "Proyector interactivo Full HD",
       "Climatización regulable"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 60, iconName: "Presentation" },
-      { type: "U-Shape", capacity: 25, iconName: "Users" }
+    amenitiesEn: [
+      "Dedicated fiber optic connection",
+      "Interactive Full HD projector",
+      "Adjustable air conditioning"
     ],
-    locationDesc: "Costado oriental del Sótano 1, cerca del ascensor secundario."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 60, iconName: "Presentation" },
+      { type: "U-Shape", typeEn: "U-Shape", capacity: 25, iconName: "Users" }
+    ],
+    locationDesc: "Costado oriental del Sótano 1, cerca del ascensor secundario.",
+    locationDescEn: "Eastern side of Basement 1, near the secondary elevator."
   },
   {
     id: "salon-villegas",
     name: "Salón Villegas",
+    nameEn: "Villegas Room",
     description: "Versátil espacio en el Sótano 1 idóneo para conferencias empresariales, dinámicas de equipo y talleres prácticos en un entorno privado de alto rendimiento.",
+    descriptionEn: "Versatile space in Basement 1 suitable for business conferences, team building dynamics and practical workshops in a high-performance private environment.",
     capacity: 80,
     dimensions: "12m x 8m (96 m²)",
     floor: "Sótano 1",
+    floorEn: "Basement 1",
     image: "https://my.matterport.com/resources/model/fsZs3PB3jbh/image",
     gallery: [
       "https://my.matterport.com/resources/model/fsZs3PB3jbh/image"
@@ -47,19 +59,28 @@ export const SALONES_DATA: SalonVenue[] = [
       "Dimmers táctiles",
       "Sonido ambiental integrado"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 80, iconName: "Presentation" },
-      { type: "Aula/Escuela", capacity: 50, iconName: "GraduationCap" }
+    amenitiesEn: [
+      "Comprehensive acoustic insulation",
+      "Tactile dimmers",
+      "Integrated ambient sound"
     ],
-    locationDesc: "Sótano 1, junto a las escaleras de servicio principal."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 80, iconName: "Presentation" },
+      { type: "Aula/Escuela", typeEn: "Classroom", capacity: 50, iconName: "GraduationCap" }
+    ],
+    locationDesc: "Sótano 1, junto a las escaleras de servicio principal.",
+    locationDescEn: "Basement 1, next to the main service stairs."
   },
   {
     id: "salon-rayo",
     name: "Salón Rayo",
+    nameEn: "Rayo Room",
     description: "Espacio ejecutivo óptimo para juntas directivas, focus groups y comités privados que requieren la más alta concentración y excelente confort técnico.",
+    descriptionEn: "Optimal executive space for boards of directors, focus groups, and private committees that require maximum concentration and excellent technical comfort.",
     capacity: 50,
     dimensions: "8m x 8m (64 m²)",
     floor: "Sótano 1",
+    floorEn: "Basement 1",
     image: "https://my.matterport.com/resources/model/o7FqsCWJwPr/image",
     gallery: [
       "https://my.matterport.com/resources/model/o7FqsCWJwPr/image"
@@ -69,19 +90,27 @@ export const SALONES_DATA: SalonVenue[] = [
       "Pantalla multipanel LED de última generación",
       "Soporte para videoconferencia híbrida de alta definición"
     ],
-    setups: [
-      { type: "Espacio de Junta", capacity: 20, iconName: "Briefcase" },
-      { type: "Auditorio", capacity: 50, iconName: "Presentation" }
+    amenitiesEn: [
+      "State-of-the-art multi-panel LED screen",
+      "Support for high-definition hybrid videoconferencing"
     ],
-    locationDesc: "Sótano 1, contiguo al vestíbulo oeste."
+    setups: [
+      { type: "Espacio de Junta", typeEn: "Boardroom", capacity: 20, iconName: "Briefcase" },
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 50, iconName: "Presentation" }
+    ],
+    locationDesc: "Sótano 1, contiguo al vestíbulo oeste.",
+    locationDescEn: "Basement 1, adjacent to the west lobby."
   },
   {
     id: "salon-arenas",
     name: "Salón Arenas",
+    nameEn: "Arenas Room",
     description: "Salón imponente y espacioso en el Sótano 1, equipado con acabados refinados para banquetes solemnes, entrenamientos y asambleas corporativas.",
+    descriptionEn: "Stately and spacious hall on Basement 1, equipped with refined finishes for solemn banquets, professional training, and corporate assemblies.",
     capacity: 100,
     dimensions: "15m x 8m (120 m²)",
     floor: "Sótano 1",
+    floorEn: "Basement 1",
     image: "https://my.matterport.com/resources/model/1Hq2XGGkgAs/image",
     gallery: [
       "https://my.matterport.com/resources/model/1Hq2XGGkgAs/image"
@@ -92,19 +121,28 @@ export const SALONES_DATA: SalonVenue[] = [
       "Climatización zonificada silenciosa",
       "Iluminación indirecta regulable"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 100, iconName: "Presentation" },
-      { type: "Banquete", capacity: 70, iconName: "Utensils" }
+    amenitiesEn: [
+      "Digital surround sound",
+      "Silent zoned climate control",
+      "Adjustable indirect lighting"
     ],
-    locationDesc: "Centro del Sótano 1, con acceso ágil desde los ascensores principales de eventos."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 100, iconName: "Presentation" },
+      { type: "Banquete", typeEn: "Banquet", capacity: 70, iconName: "Utensils" }
+    ],
+    locationDesc: "Centro del Sótano 1, con acceso ágil desde los ascensores principales de eventos.",
+    locationDescEn: "Center of Basement 1, with quick access from the main events elevators."
   },
   {
     id: "salon-roda",
     name: "Salón Roda",
+    nameEn: "Roda Room",
     description: "Hermoso y reservado espacio en el Sótano 1 diseñado para comités selectos u organizadores que exijan total conectividad simétrica dedicada.",
+    descriptionEn: "Beautiful and reserved space in Basement 1 designed for select committees or organizers demanding dedicated high-speed symmetric connectivity.",
     capacity: 45,
     dimensions: "8m x 7m (56 m²)",
     floor: "Sótano 1",
+    floorEn: "Basement 1",
     image: "https://my.matterport.com/resources/model/vg3UfmtNnDM/image",
     gallery: [
       "https://my.matterport.com/resources/model/vg3UfmtNnDM/image"
@@ -114,21 +152,29 @@ export const SALONES_DATA: SalonVenue[] = [
       "WiFi corporativo de alta velocidad",
       "Tomas de energía de cómodo acceso integradas"
     ],
-    setups: [
-      { type: "Espacio de Junta", capacity: 18, iconName: "Briefcase" },
-      { type: "Auditorio", capacity: 40, iconName: "Presentation" }
+    amenitiesEn: [
+      "High-speed corporate WiFi",
+      "Conveniently located integrated power outlets"
     ],
-    locationDesc: "Sótano 1, costado norte del foyer de descarga."
+    setups: [
+      { type: "Espacio de Junta", typeEn: "Boardroom", capacity: 18, iconName: "Briefcase" },
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 40, iconName: "Presentation" }
+    ],
+    locationDesc: "Sótano 1, costado norte del foyer de descarga.",
+    locationDescEn: "Basement 1, north side of the unload foyer."
   },
 
   // --- PISO 2 ---
   {
     id: "salon-manzur",
     name: "Salón Manzur",
+    nameEn: "Manzur Room",
     description: "Ubicado en el prestigioso Piso 2, este salón ofrece una atmósfera refinada e inmejorable para seminarios académicos, banquetes y juntas corporativas amplias.",
+    descriptionEn: "Located on the prestigious Floor 2, this room offers a refined and unbeatable atmosphere for academic seminars, banquets and spacious corporate boards.",
     capacity: 120,
     dimensions: "15m x 10m (150 m²)",
     floor: "Piso 2",
+    floorEn: "Floor 2",
     image: "https://my.matterport.com/resources/model/aZsW8W6G3C5/image",
     gallery: [
       "https://my.matterport.com/resources/model/aZsW8W6G3C5/image"
@@ -139,19 +185,28 @@ export const SALONES_DATA: SalonVenue[] = [
       "Aislamiento termoacústico",
       "Control de luces inteligente"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 120, iconName: "Presentation" },
-      { type: "Banquete", capacity: 80, iconName: "Utensils" }
+    amenitiesEn: [
+      "High brightness digital projector",
+      "Thermoacoustic isolation",
+      "Intelligent light control"
     ],
-    locationDesc: "Ala Norte, Piso 2. Conexión rápida al foyer de congresos."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 120, iconName: "Presentation" },
+      { type: "Banquete", typeEn: "Banquet", capacity: 80, iconName: "Utensils" }
+    ],
+    locationDesc: "Ala Norte, Piso 2. Conexión rápida al foyer de congresos.",
+    locationDescEn: "North Wing, Floor 2. Quick connection to the congress foyer."
   },
   {
     id: "salon-botero",
     name: "Salón Botero",
+    nameEn: "Botero Room",
     description: "Imponente salón en el Piso 2 de gran escala. Cuenta con una acústica calibrada perfecta para foros magistrales, banquetes conmemorativos de gala y lanzamientos de alto perfil.",
+    descriptionEn: "Imposing large-scale hall on Floor 2. It features calibrated acoustics perfect for keynote forums, gala commemorative banquets, and high-profile launches.",
     capacity: 180,
     dimensions: "18m x 12m (216 m²)",
     floor: "Piso 2",
+    floorEn: "Floor 2",
     image: "https://my.matterport.com/resources/model/rEWtPSFtcv6/image",
     gallery: [
       "https://my.matterport.com/resources/model/rEWtPSFtcv6/image"
@@ -162,20 +217,29 @@ export const SALONES_DATA: SalonVenue[] = [
       "Pantalla de formato gigante integrada",
       "Ubicado en el área principal de Foyer corporativo"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 180, iconName: "Presentation" },
-      { type: "Banquete", capacity: 110, iconName: "Utensils" },
-      { type: "Cóctel", capacity: 170, iconName: "Wine" }
+    amenitiesEn: [
+      "High fidelity stereo sound system",
+      "Giant format screen integrated",
+      "Located in the main corporate Foyer area"
     ],
-    locationDesc: "Frente a las canchas de escaleras mecánicas principales en el Piso 2."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 180, iconName: "Presentation" },
+      { type: "Banquete", typeEn: "Banquet", capacity: 110, iconName: "Utensils" },
+      { type: "Cóctel", typeEn: "Cocktail", capacity: 170, iconName: "Wine" }
+    ],
+    locationDesc: "Frente a las canchas de escaleras mecánicas principales en el Piso 2.",
+    locationDescEn: "In front of the main escalator banks on Floor 2."
   },
   {
     id: "salon-grau",
     name: "Salón Grau",
+    nameEn: "Grau Room",
     description: "Salón elegante de dimensiones intermedias en el Piso 2, ideal para entrenamientos continuados, juntas corporativas participativas y almuerzos vip.",
+    descriptionEn: "Elegant, medium-sized room on Floor 2, ideal for continuous training, highly collaborative corporate board meetings and VIP lunches.",
     capacity: 90,
     dimensions: "12m x 9m (108 m²)",
     floor: "Piso 2",
+    floorEn: "Floor 2",
     image: "https://my.matterport.com/resources/model/ANbP9ct5iKD/image",
     gallery: [
       "https://my.matterport.com/resources/model/ANbP9ct5iKD/image"
@@ -186,19 +250,28 @@ export const SALONES_DATA: SalonVenue[] = [
       "Iluminación indirecta optimizada",
       "Conectividad multimedios avanzada"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 90, iconName: "Presentation" },
-      { type: "Aula/Escuela", capacity: 55, iconName: "GraduationCap" }
+    amenitiesEn: [
+      "Individual digital climate control",
+      "Optimized indirect lighting",
+      "Advanced multimedia connectivity"
     ],
-    locationDesc: "Piso 2, corredor lateral derecho del hotel."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 90, iconName: "Presentation" },
+      { type: "Aula/Escuela", typeEn: "Classroom", capacity: 55, iconName: "GraduationCap" }
+    ],
+    locationDesc: "Piso 2, corredor lateral derecho del hotel.",
+    locationDescEn: "Floor 2, lateral right corridor of the hotel."
   },
   {
     id: "salon-obregon",
     name: "Salón Obregón",
+    nameEn: "Obregón Room",
     description: "Salón dinámico y de gran versatilidad en el Piso 2 que destaca por sus sistemas de paneles divisorios acústicos y óptimo equipamiento para conferencias.",
+    descriptionEn: "Dynamic and highly versatile room on Floor 2 that stands out for its acoustic partition systems and optimal conference equipment.",
     capacity: 150,
     dimensions: "16m x 10m (160 m²)",
     floor: "Piso 2",
+    floorEn: "Floor 2",
     image: "https://my.matterport.com/resources/model/w5C7gSLYRnA/image/R5HMJNpFPcd",
     gallery: [
       "https://my.matterport.com/resources/model/w5C7gSLYRnA/image/R5HMJNpFPcd"
@@ -209,19 +282,28 @@ export const SALONES_DATA: SalonVenue[] = [
       "Controles inteligentes de luz",
       "Proyección de alta resolución"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 150, iconName: "Presentation" },
-      { type: "Banquete", capacity: 90, iconName: "Utensils" }
+    amenitiesEn: [
+      "Integrated Bose® sound",
+      "Intelligent lighting controls",
+      "High resolution projection"
     ],
-    locationDesc: "Centro de Convenciones del Piso 2, sector oeste."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 150, iconName: "Presentation" },
+      { type: "Banquete", typeEn: "Banquet", capacity: 90, iconName: "Utensils" }
+    ],
+    locationDesc: "Centro de Convenciones del Piso 2, sector oeste.",
+    locationDescEn: "Floor 2 Conventions Center, west sector."
   },
   {
     id: "salon-arango",
     name: "Salón Arango",
+    nameEn: "Arango Room",
     description: "Excelente espacio adaptado para conferencias de prensa, comités estratégicos ejecutivos y reuniones empresariales de alta reserva con privacidad absoluta en el Piso 2.",
+    descriptionEn: "Excellent space adapted for press conferences, strategic executive committees and high-security business meetings with absolute privacy on Floor 2.",
     capacity: 70,
     dimensions: "10m x 8m (80 m²)",
     floor: "Piso 2",
+    floorEn: "Floor 2",
     image: "https://my.matterport.com/resources/model/VuCwsayj645/image",
     gallery: [
       "https://my.matterport.com/resources/model/VuCwsayj645/image"
@@ -231,19 +313,27 @@ export const SALONES_DATA: SalonVenue[] = [
       "Cámara omnidireccional robotizada PTZ",
       "Sillas de alto confort ergonómico"
     ],
-    setups: [
-      { type: "Espacio de Junta", capacity: 25, iconName: "Briefcase" },
-      { type: "Auditorio", capacity: 70, iconName: "Presentation" }
+    amenitiesEn: [
+      "PTZ robotic omnidirectional camera",
+      "High comfort ergonomic seats"
     ],
-    locationDesc: "Costado sur del Piso 2, contiguo a la terraza o descanso ejecutivo."
+    setups: [
+      { type: "Espacio de Junta", typeEn: "Boardroom", capacity: 25, iconName: "Briefcase" },
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 70, iconName: "Presentation" }
+    ],
+    locationDesc: "Costado sur del Piso 2, contiguo a la terraza o descanso ejecutivo.",
+    locationDescEn: "South side of Floor 2, adjacent to the terrace or executive lobby."
   },
   {
     id: "salon-negrett",
     name: "Salón Negrett",
+    nameEn: "Negrett Room",
     description: "Espectacular sala en el Piso 2 ideal para talleres simultáneos, capacitaciones departamentales, exposiciones y almuerzos comerciales.",
+    descriptionEn: "Spectacular room on Floor 2 ideal for simultaneous workshops, departmental training, exhibitions and commercial lunches.",
     capacity: 130,
     dimensions: "14m x 10m (140 m²)",
     floor: "Piso 2",
+    floorEn: "Floor 2",
     image: "https://my.matterport.com/resources/model/gGaQU6C3xLo/image",
     gallery: [
       "https://my.matterport.com/resources/model/gGaQU6C3xLo/image"
@@ -253,19 +343,27 @@ export const SALONES_DATA: SalonVenue[] = [
       "Aislamiento de alto nivel acústico móvil",
       "Proyectores duales de excelente luminosidad"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 130, iconName: "Presentation" },
-      { type: "Banquete", capacity: 80, iconName: "Utensils" }
+    amenitiesEn: [
+      "High level mobile acoustic isolation",
+      "Dual high-luminosity projectors"
     ],
-    locationDesc: "Piso 2, sector suroeste del complejo."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 130, iconName: "Presentation" },
+      { type: "Banquete", typeEn: "Banquet", capacity: 80, iconName: "Utensils" }
+    ],
+    locationDesc: "Piso 2, sector suroeste del complejo.",
+    locationDescEn: "Floor 2, southwest sector of the complex."
   },
   {
     id: "salon-gran-wyndham",
     name: "Gran Salón Wyndham",
+    nameEn: "Grand Wyndham Ballroom",
     description: "El monumental y sofisticado salón insignia en el Piso 2, diseñado para albergar las convenciones empresariales más multitudinarias del país, lanzamientos internacionales y cenas de gala memorables.",
+    descriptionEn: "The monumental and sophisticated flagship hall on Floor 2, designed to host the country's most massive business conventions, international launches and memorable gala diners.",
     capacity: 400,
     dimensions: "24m x 16m (384 m²)",
     floor: "Piso 2",
+    floorEn: "Floor 2",
     image: "https://my.matterport.com/resources/model/Uov9CmnMSEA/image",
     gallery: [
       "https://my.matterport.com/resources/model/Uov9CmnMSEA/image"
@@ -276,12 +374,18 @@ export const SALONES_DATA: SalonVenue[] = [
       "Rigging points para iluminación escénica compleja",
       "Aire acondicionado regulable automatizado inteligente"
     ],
-    setups: [
-      { type: "Auditorio", capacity: 400, iconName: "Presentation" },
-      { type: "Banquete", capacity: 250, iconName: "Utensils" },
-      { type: "Cóctel", capacity: 380, iconName: "Wine" }
+    amenitiesEn: [
+      "Optimal Line Array sound systems",
+      "Rigging points for complex scenic lighting",
+      "Smart automated climate control system"
     ],
-    locationDesc: "Ingreso principal destacado a través del Gran Foyer del Piso 2."
+    setups: [
+      { type: "Auditorio", typeEn: "Auditorium", capacity: 400, iconName: "Presentation" },
+      { type: "Banquete", typeEn: "Banquet", capacity: 250, iconName: "Utensils" },
+      { type: "Cóctel", typeEn: "Cocktail", capacity: 380, iconName: "Wine" }
+    ],
+    locationDesc: "Ingreso principal destacado a través del Gran Foyer del Piso 2.",
+    locationDescEn: "Featured main entrance through the Floor 2 Grand Foyer."
   }
 ];
 

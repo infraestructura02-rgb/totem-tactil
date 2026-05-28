@@ -20,7 +20,9 @@ import {
   Utensils, 
   Tv, 
   Volume2, 
-  Layers 
+  Layers,
+  Wifi,
+  Car
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import VenueGallery from "../components/VenueGallery";
@@ -122,51 +124,79 @@ export default function VenueDetail() {
             </div>
 
             {/* Matterport promo interactive trigger block */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#004B75] to-[#003B5C] p-8 text-white border-b-4 border-[#1E88C8] shadow-md">
-              <div className="absolute right-0 bottom-0 top-0 w-1/3 opacity-15 pointer-events-none">
-                <svg className="h-full w-full object-cover" viewBox="0 0 100 100" fill="currentColor">
-                  <path d="M 0 100 L 100 0 L 100 100 Z" />
-                </svg>
-              </div>
+            {venue.matterportUrl && (
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#004B75] to-[#003B5C] p-8 text-white border-b-4 border-[#1E88C8] shadow-md">
+                <div className="absolute right-0 bottom-0 top-0 w-1/3 opacity-15 pointer-events-none">
+                  <svg className="h-full w-full object-cover" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M 0 100 L 100 0 L 100 100 Z" />
+                  </svg>
+                </div>
 
-              <div className="relative z-10 max-w-md">
-                <span className="inline-block bg-[#1E88C8] text-[#001D2E] font-sans text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider mb-3">
-                  {t("immersiva_3d_tag")}
-                </span>
-                
-                <h3 className="font-sans text-xl font-bold">
-                  {t("desea_explorar")}
-                </h3>
-                
-                <p className="mt-2 font-sans text-xs text-blue-100/90 leading-relaxed">
-                  {t("desea_explorar_desc")}
-                </p>
+                <div className="relative z-10 max-w-md">
+                  <span className="inline-block bg-[#1E88C8] text-[#001D2E] font-sans text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider mb-3">
+                    {t("immersiva_3d_tag")}
+                  </span>
+                  
+                  <h3 className="font-sans text-xl font-bold">
+                    {t("desea_explorar")}
+                  </h3>
+                  
+                  <p className="mt-2 font-sans text-xs text-blue-100/90 leading-relaxed">
+                    {t("desea_explorar_desc")}
+                  </p>
 
-                <button
-                  id="btn-active-matterport-details"
-                  onClick={() => {
-                    setActive3dUrl(venue.matterportUrl);
-                    setActive3dName(translatedName);
-                  }}
-                  className="mt-5 inline-flex items-center gap-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 px-6 py-3.5 font-sans text-xs font-black text-white shadow-lg active:scale-95 transition animate-pulse"
-                >
-                  <Compass className="h-4.5 w-4.5 animate-spin-slow" />
-                  {t("iniciar_virtual_button")}
-                </button>
+                  <button
+                    id="btn-active-matterport-details"
+                    onClick={() => {
+                      setActive3dUrl(venue.matterportUrl);
+                      setActive3dName(translatedName);
+                    }}
+                    className="mt-5 inline-flex items-center gap-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 px-6 py-3.5 font-sans text-xs font-black text-white shadow-lg active:scale-95 transition animate-pulse"
+                  >
+                    <Compass className="h-4.5 w-4.5 animate-spin-slow" />
+                    {t("iniciar_virtual_button")}
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </section>
 
           {/* R: MONTAGE SETUPS & SPECIFICATIONS (5 Cols) */}
           <aside className="lg:col-span-5 space-y-6">
             
+            {/* Destacar visualmente la capacidad máxima de cada salón */}
+            <div className="bg-gradient-to-br from-[#004B75] to-[#003B5C] p-6 rounded-2xl border-b-4 border-[#1E88C8] text-white shadow-md text-left">
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] uppercase tracking-widest text-[#1E88C8] font-extrabold">
+                    {language === "en" ? "PEAK CAPACITY" : "CAPACIDAD MÁXIMA"}
+                  </span>
+                  <h4 className="font-sans text-lg font-black mt-1 leading-none">
+                    {language === "en" ? "Maximum Guests" : "Aforo Máximo"}
+                  </h4>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white/10 px-3.5 py-2.5 rounded-xl backdrop-blur-xs">
+                  <Users className="h-5 w-5 text-amber-400 shrink-0" />
+                  <span className="font-mono text-3xl font-black text-white tracking-tight">
+                    {venue.capacity}
+                  </span>
+                </div>
+              </div>
+              <p className="mt-3 font-sans text-[11px] text-blue-100/80 leading-relaxed">
+                {language === "en" 
+                  ? "Optimized for seamless dynamic crowd flows and premium executive security standards."
+                  : "Optimizado para flujos masivos dinámicos y los más altos estándares de comodidad ejecutiva."
+                }
+              </p>
+            </div>
+
             {/* Montajes Section */}
             <div className="bg-white p-6 rounded-2xl border border-gray-150 shadow-xs">
               <h3 className="font-sans text-sm font-extrabold text-[#003B5C] uppercase tracking-wider border-b border-gray-100 pb-3 mb-4">
                 {t("capacidad_montaje_title")}
               </h3>
 
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 gap-3 text-left">
                 {venue.setups.map((setup, index) => {
                   const translatedSetupType = language === "en" ? (setup.typeEn || setup.type) : setup.type;
 
@@ -214,6 +244,41 @@ export default function VenueDetail() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Servicios con costo adicional */}
+            <div className="bg-white p-6 rounded-2xl border border-gray-150 shadow-xs text-left">
+              <h3 className="font-sans text-sm font-extrabold text-[#003B5C] uppercase tracking-wider border-b border-gray-100 pb-3 mb-4 flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-amber-500" />
+                {t("additional_services_title")}
+              </h3>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 bg-slate-50/50 rounded-xl border border-gray-100 flex flex-col justify-between hover:bg-slate-50 transition">
+                  <Wifi className="h-5 w-5 text-[#1E88C8] mb-2" />
+                  <span className="font-sans text-[11px] font-bold text-gray-800 leading-tight">
+                    {t("service_internet")}
+                  </span>
+                </div>
+                <div className="p-3 bg-slate-50/50 rounded-xl border border-gray-100 flex flex-col justify-between hover:bg-slate-50 transition">
+                  <Car className="h-5 w-5 text-[#1E88C8] mb-2" />
+                  <span className="font-sans text-[11px] font-bold text-gray-800 leading-tight">
+                    {t("service_transit")}
+                  </span>
+                </div>
+                <div className="p-3 bg-slate-50/50 rounded-xl border border-gray-100 flex flex-col justify-between hover:bg-slate-50 transition">
+                  <Building className="h-5 w-5 text-[#1E88C8] mb-2" />
+                  <span className="font-sans text-[11px] font-bold text-gray-800 leading-tight">
+                    {t("service_parking")}
+                  </span>
+                </div>
+                <div className="p-3 bg-slate-50/50 rounded-xl border border-gray-100 flex flex-col justify-between hover:bg-slate-50 transition">
+                  <Tv className="h-5 w-5 text-[#1E88C8] mb-2" />
+                  <span className="font-sans text-[11px] font-bold text-gray-800 leading-tight">
+                    {t("service_av")}
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Ubicación y Accesibilidad de salón */}

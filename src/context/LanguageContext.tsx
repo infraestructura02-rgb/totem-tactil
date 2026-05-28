@@ -93,6 +93,13 @@ const translations: Record<Language, Record<string, string>> = {
     ubicacion_espacio: "Ubicación del Espacio",
     coffee_break_available: "Servicio Gourmet de Coffee Break Disponible a Solicitud",
 
+    // Additional Paid Services
+    additional_services_title: "Servicios con costo Adicional",
+    service_internet: "Internet de alta velocidad",
+    service_transit: "Transporte VIP",
+    service_parking: "Parqueadero Privado",
+    service_av: "Equipamiento Audiovisual",
+
     // Gallery / Utility
     no_images: "Sin imágenes disponibles",
     premium_images: "Imágenes Premium",
@@ -193,6 +200,13 @@ const translations: Record<Language, Record<string, string>> = {
     amenidades_infra: "Amenities & Infrastructure",
     ubicacion_espacio: "Space Location",
     coffee_break_available: "Gourmet Coffee Break Service Available On Request",
+
+    // Additional Paid Services
+    additional_services_title: "Services with Additional Cost",
+    service_internet: "High-Speed Internet",
+    service_transit: "VIP Transportation",
+    service_parking: "Private Parking",
+    service_av: "Audiovisual Equipment",
 
     // Gallery / Utility
     no_images: "No images available",

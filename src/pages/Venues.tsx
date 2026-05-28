@@ -18,7 +18,7 @@ export default function Venues() {
   const [selectedFloor, setSelectedFloor] = useState<string>("All");
   const { t, language } = useLanguage();
 
-  const floors = ["All", "Sótano 1", "Piso 2"];
+  const floors = ["All", "Sótano 1", "Piso 1", "Piso 2", "Piso 5"];
 
   const filteredVenues = selectedFloor === "All"
     ? SALONES_DATA
@@ -26,6 +26,7 @@ export default function Venues() {
 
   const trigger3dTour = (url: string, name: string, e: React.MouseEvent) => {
     e.preventDefault(); // Stop navigation to page when tapping the interactive tour button
+    if (!url) return;
     setActive3dUrl(url);
     setActive3dName(name);
   };
@@ -53,7 +54,7 @@ export default function Venues() {
               const displayLabel = fl === "All" 
                 ? t("all") 
                 : (language === "en" 
-                    ? (fl === "Sótano 1" ? "Basement 1" : "Floor 2") 
+                    ? fl.replace("Sótano", "Basement").replace("Piso", "Floor") 
                     : fl);
 
               return (
@@ -109,14 +110,16 @@ export default function Venues() {
                     </div>
 
                     {/* Immediate Matterport interactive overlay */}
-                    <button
-                      id={`btn-immediate-matterport-${venue.id}`}
-                      onClick={(e) => trigger3dTour(venue.matterportUrl, translatedName, e)}
-                      className="absolute bottom-4 right-4 flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 px-4 py-3 font-sans text-xs font-bold text-white shadow-lg active:scale-90 transition animate-pulse"
-                    >
-                      <Compass className="h-4 w-4 animate-spin-slow" />
-                      {t("abras_3d")}
-                    </button>
+                    {venue.matterportUrl && (
+                      <button
+                        id={`btn-immediate-matterport-${venue.id}`}
+                        onClick={(e) => trigger3dTour(venue.matterportUrl, translatedName, e)}
+                        className="absolute bottom-4 right-4 flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-600 px-4 py-3 font-sans text-xs font-bold text-white shadow-lg active:scale-90 transition animate-pulse"
+                      >
+                        <Compass className="h-4 w-4 animate-spin-slow" />
+                        {t("abras_3d")}
+                      </button>
+                    )}
                   </div>
 
                   {/* Info Deck */}

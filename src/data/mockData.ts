@@ -460,7 +460,7 @@ export const SALONES_DATA: SalonVenue[] = [
     locationDesc: "Sótano 1, extremo oriental contiguo a zona de servicios.",
     locationDescEn: "Basement 1, eastern end contiguous to service area."
   },
-  {
+ /* {
     id: "salon-lounge",
     name: "Salón Lounge Ejecutivos",
     nameEn: "Executive Lounge Room",
@@ -526,7 +526,7 @@ export const SALONES_DATA: SalonVenue[] = [
     locationDescEn: "Floor 1, adjacent to Madrigal Restaurant."
   },
   {
-    id: "salon-suite-presidencial",
+   id: "salon-suite-presidencial",
     name: "Mesa VIP Suite Presidencial",
     nameEn: "Presidential Suite Boardroom",
     description: "El espacio de mayor prestigio corporativo en el último piso del hotel. Reúne el confort de nuestra suite presidencial con una magnífica mesa imperial idónea para firmas de contratos y comités.",
@@ -556,7 +556,7 @@ export const SALONES_DATA: SalonVenue[] = [
     ],
     locationDesc: "Piso 5, Suite Presidencial (acceso restringido mediante ascensor VIP).",
     locationDescEn: "Floor 5, Presidential Suite (restricted access via VIP keycard lift)."
-  }
+ }
 ];
 
 export const ROOMS_DATA: HotelRoom[] = [
@@ -626,7 +626,7 @@ export const ROOMS_DATA: HotelRoom[] = [
     ],
     features: ["Ventanas de Piso a Techo", "Check-in Prioritario VIP", "Clasificada como de Alta Experiencia"]
   }
-];
+];*/
 
 export const DINING_DATA: DiningVenue[] = [
   {

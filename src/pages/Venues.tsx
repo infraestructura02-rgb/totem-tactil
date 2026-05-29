@@ -18,7 +18,7 @@ export default function Venues() {
   const [selectedFloor, setSelectedFloor] = useState<string>("All");
   const { t, language } = useLanguage();
 
-  const floors = ["All", "Sótano 1", "Piso 1", "Piso 2"];
+  const floors = ["All", "Sótano 1", "Piso 2"];
 
   const filteredVenues = selectedFloor === "All"
     ? SALONES_DATA

@@ -19,7 +19,7 @@ const GALLERY_IMAGES = [
     descEn: "An impressive contemporary design in Bogota's most strategic business district."
   },
   {
-    url: "",
+    url: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/868932157.jpg?k=cc8cfa216887b6d601b801fc49dfba136b3954e51db8ad1fb31867f837874a05&o=",
     titleEs: "Lobby Principal & Recepción",
     titleEn: "Main Lobby & Front Desk",
     descEs: "Espacios sofisticados y de gran altura para darle la bienvenida con nuestra calidez característica.",

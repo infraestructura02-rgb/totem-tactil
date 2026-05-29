@@ -5,10 +5,14 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Clock, CloudSun, MapPin, PhoneCall } from "lucide-react";
+import { Clock, CloudSun, MapPin, PhoneCall, Sparkles } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { useReservation } from "../context/ReservationContext";
 
 export default function Footer() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const { language } = useLanguage();
+  const { openReservation } = useReservation();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -87,10 +91,14 @@ export default function Footer() {
             
             <span className="hidden sm:inline text-blue-800">|</span>
 
-            <div className="flex items-center gap-1.5 text-gray-300">
-              <PhoneCall className="h-3.5 w-3.5 text-[#1E88C8]" />
-              <span>Ext. 601 6083000 (Recepción)</span>
-            </div>
+            <button
+              id="btn-footer-reserve"
+              onClick={() => openReservation()}
+              className="bg-amber-500 hover:bg-amber-600 text-white font-sans text-xs font-black uppercase tracking-wider px-5 py-3 rounded-xl shadow-md active:scale-95 transition-all flex items-center gap-2 border border-amber-600/20"
+            >
+              <Sparkles className="h-3.5 w-3.5 text-amber-100" />
+              <span>{language === "en" ? "Reserve Now" : "Reservar Ahora"}</span>
+            </button>
           </div>
         </div>
       </div>

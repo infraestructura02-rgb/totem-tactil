@@ -22,12 +22,14 @@ import {
   Volume2, 
   Layers,
   Wifi,
-  Car
+  Car,
+  Sparkles
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import VenueGallery from "../components/VenueGallery";
 import MatterportViewer from "../components/MatterportViewer";
 import { useLanguage } from "../context/LanguageContext";
+import { useReservation } from "../context/ReservationContext";
 
 export default function VenueDetail() {
   const { id } = useParams<{ id: string }>();
@@ -36,6 +38,7 @@ export default function VenueDetail() {
   const { t, language } = useLanguage();
 
   const venue = SALONES_DATA.find((item) => item.id === id);
+  const { openReservation } = useReservation();
 
   if (!venue) {
     return (
@@ -164,6 +167,26 @@ export default function VenueDetail() {
           {/* R: MONTAGE SETUPS & SPECIFICATIONS (5 Cols) */}
           <aside className="lg:col-span-5 space-y-6">
             
+            {/* RESERVATION CTA CARD */}
+            <div className="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm text-center flex flex-col items-center">
+              <span className="font-sans text-[10px] font-black text-[#004B75] uppercase tracking-widest leading-none mb-1.5 block">
+                {language === "en" ? "BOOK THIS SPACE" : "PLANIFIQUE SU EVENTO"}
+              </span>
+              <p className="font-sans text-xs text-gray-500 mt-1 mb-5 leading-relaxed">
+                {language === "en" 
+                  ? "Reserve this custom room setup and prepare high-priority quote lists instantly." 
+                  : "Presione para pre-reservar este espacio Wyndham con la configuración y servicios adicionales requeridos."}
+              </p>
+              <button
+                id="btn-reserve-salon-detail"
+                onClick={() => openReservation(venue.id)}
+                className="w-full inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-sans text-xs font-black uppercase tracking-wider py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-97 transition duration-150 animate-bounce-slow"
+              >
+                <Sparkles className="h-4.5 w-4.5 text-amber-100" />
+                <span>{language === "en" ? "Reserve Now" : "Reservar Ahora"}</span>
+              </button>
+            </div>
+
             {/* Destacar visualmente la capacidad máxima de cada salón */}
             <div className="bg-gradient-to-br from-[#004B75] to-[#003B5C] p-6 rounded-2xl border-b-4 border-[#1E88C8] text-white shadow-md text-left">
               <div className="flex items-center justify-between">

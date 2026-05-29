@@ -434,11 +434,13 @@ export const SALONES_DATA: SalonVenue[] = [
     dimensions: "62.17 m²",
     floor: "Sótano 1",
     floorEn: "Basement 1",
-    image: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1200&q=80",
+    image: "https://my.matterport.com/resources/model/32oGti3bmHF/image",
     gallery: [
-      "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1200&q=80"
+      "https://my.matterport.com/resources/model/32oGti3bmHF/image",
+      "https://my.matterport.com/resources/model/32oGti3bmHF/image/vTnNLVtMuuF",
+      "https://my.matterport.com/resources/model/32oGti3bmHF/image/vaYoDZU4XTC"
     ],
-    matterportUrl: "",
+    matterportUrl: "https://my.matterport.com/show/?m=32oGti3bmHF",
     amenities: [
       "Materiales acústicos premium de última generación",
       "Conectores de recarga empotrados ergonómicos",

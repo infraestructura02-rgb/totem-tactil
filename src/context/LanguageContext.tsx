@@ -48,6 +48,7 @@ const translations: Record<Language, Record<string, string>> = {
     cat_dining_badge: "Información Gastronómica",
     
     // Matterport Home
+    acceso_recorridos_virtuales: "Acceso a recorridos virtuales",
     matterport_heading: "Módulos Inmersivos de Escaneo 3D",
     matterport_title: "Acceso Inmediato a Recorridos Virtuales",
     view_setups_link: "Ver capacidades de montaje",
@@ -156,6 +157,7 @@ const translations: Record<Language, Record<string, string>> = {
     cat_dining_badge: "Dining Information",
     
     // Matterport Home
+    acceso_recorridos_virtuales: "Access to virtual tours",
     matterport_heading: "Immersive 3D Scanner Modules",
     matterport_title: "Immediate Access to Virtual Tours",
     view_setups_link: "View setup capacities",

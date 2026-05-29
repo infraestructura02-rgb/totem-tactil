@@ -3,18 +3,71 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Building, Bed, Utensils, Award, ArrowRight, Eye, Sparkles, MapPin, Check, Clock } from "lucide-react";
+import { Building, Bed, Utensils, ArrowRight, Sparkles, MapPin, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { SALONES_DATA } from "../data/mockData";
 import MatterportViewer from "../components/MatterportViewer";
 import { useLanguage } from "../context/LanguageContext";
+
+const GALLERY_IMAGES = [
+  {
+    url: "https://www.hotelwyndhambogota.com/wp-content/uploads/2021/05/IMG_2405-1024x674.jpg",
+    titleEs: "Fachada & Arquitectura Exterior",
+    titleEn: "Exterior Facade & Architecture",
+    descEs: "Un imponente diseño contemporáneo en el sector más estratégico y empresarial de Bogotá.",
+    descEn: "An impressive contemporary design in Bogota's most strategic business district."
+  },
+  {
+    url: "",
+    titleEs: "Lobby Principal & Recepción",
+    titleEn: "Main Lobby & Front Desk",
+    descEs: "Espacios sofisticados y de gran altura para darle la bienvenida con nuestra calidez característica.",
+    descEn: "Sophisticated double-height spaces welcoming you with our signature warmth."
+  },
+  {
+    url: "https://www.hotelwyndhambogota.com/wp-content/uploads/2022/05/Suite-Presidencial.webp",
+    titleEs: "Habitaciones & Suites de Lujo",
+    titleEn: "Luxury Guest Rooms & Suites",
+    descEs: "Ergonomía, insonorización de triple panel y colchones premium para un descanso reparador.",
+    descEn: "Ergonomic designs, triple-pane soundproofing, and premium bedding for a restorative sleep."
+  },
+  {
+    url: "https://www.hotelwyndhambogota.com/wp-content/uploads/2022/05/WYNDHAM-BOGOTA-PISO-EJECUTIVO-2-768x512.webp",
+    titleEs: "Experiencia Culinaria Restaurante",
+    titleEn: "Hotel Restaurant Dining",
+    descEs: "Sinfonía culinaria que fusiona ingredientes frescos colombianos con técnicas gastronómicas modernas.",
+    descEn: "A culinary journey combining fresh local Colombian ingredients with modern gastronomy."
+  },
+  {
+    url: "https://www.hotelwyndhambogota.com/wp-content/uploads/2020/08/oie_251532606HmSMEK.jpg",
+    titleEs: "Salones de Eventos & Convenciones",
+    titleEn: "Events & Conventions Halls",
+    descEs: "Infraestructura de nivel internacional equipada con la más alta tecnología audiovisual y layouts modulares.",
+    descEn: "World-class event facilities featuring state-of-the-art audiovisual tech and customizable setups."
+  }
+];
 
 export default function Home() {
   const [active3dUrl, setActive3dUrl] = useState<string | null>(null);
   const [active3dName, setActive3dName] = useState<string>("");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { t, language } = useLanguage();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+  };
 
   const mainCategories = [
     {
@@ -195,74 +248,103 @@ export default function Home() {
           })}
         </div>
 
-        {/* 3. MATTERPORT DIRECT INTEGRATION BAR */}
-        <section id="matterport-quick-access" className="mt-14">
-          <div className="mb-6 flex flex-col sm:flex-row justify-between sm:items-end gap-3">
-            <div>
-              <span className="font-sans text-xs font-extrabold tracking-widest text-[#1E88C8] uppercase">
-                {t("matterport_heading")}
-              </span>
-              <h3 className="font-sans text-2xl font-bold text-gray-900 mt-1">
-                {t("matterport_title")}
-              </h3>
+        {/* 3. SECCIÓN GALERÍA DE IMÁGENES AUTOMÁTICA DEL HOTEL (CADA 8 SEGUNDOS) */}
+        <section id="hotel-gallery-slider" className="mt-14 relative select-none">
+          <div className="relative overflow-hidden w-full h-[380px] md:h-[485px] rounded-3xl bg-[#001D2E] shadow-xl border border-gray-200/20">
+            {/* The Image Carousel Layer (Smooth Crossfade with motion) */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImageIndex}
+                initial={{ opacity: 0, scale: 1.01 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.10, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full"
+              >
+                <img
+                  src={GALLERY_IMAGES[currentImageIndex].url}
+                  alt={language === "en" ? GALLERY_IMAGES[currentImageIndex].titleEn : GALLERY_IMAGES[currentImageIndex].titleEs}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Gradient Dark Overlay for pristine readability of descriptors */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/15 z-10 pointer-events-none" />
+
+            {/* Manual Circle Buttons for Prev/Next Touch Inputs */}
+            <div className="absolute top-1/2 left-4 right-4 -translate-y-1/2 flex justify-between items-center pointer-events-none z-30">
+              <button
+                id="btn-gallery-prev"
+                onClick={handlePrevImage}
+                className="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/10 text-white/90 active:scale-95 transition shadow-lg"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                id="btn-gallery-next"
+                onClick={handleNextImage}
+                className="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/10 text-white/90 active:scale-95 transition shadow-lg"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
             </div>
-            
-            <Link
-              id="view-all-salones-shortcut"
-              to="/salones"
-              className="flex items-center gap-1.5 text-sm font-bold text-[#004B75] hover:underline"
-            >
-              {t("view_setups_link")}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SALONES_DATA.map((venue) => {
-              const translatedName = language === "en" ? (venue.nameEn || venue.name) : venue.name;
-              const translatedFloor = language === "en" ? (venue.floorEn || venue.floor) : venue.floor;
-
-              return (
-                <div
-                  id={`matterport-shortcut-${venue.id}`}
-                  key={venue.id}
-                  onClick={() => trigger3dTour(venue.matterportUrl, translatedName)}
-                  className="group cursor-pointer overflow-hidden rounded-xl bg-white border border-gray-150 shadow-sm transition hover:shadow-md hover:border-gray-200 p-4 active:scale-97 flex flex-col justify-between"
-                >
-                  <div className="flex items-start gap-3.5">
-                    <div className="relative h-15 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
-                      <img
-                        src={venue.image}
-                        alt={translatedName}
-                        className="h-full w-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
-                        <Eye className="h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="font-sans text-xs font-extrabold text-[#003B5C] uppercase tracking-wider line-clamp-1">
-                        {translatedName}
-                      </h4>
-                      <p className="font-sans text-[11px] text-gray-500 mt-0.5">
-                        {translatedFloor} • {t("cap_short")} {venue.capacity} {t("pers")}
-                      </p>
-                      <span className="inline-block mt-2 font-mono text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded uppercase font-semibold text-center w-full">
-                        {t("recorrido_3d")}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between font-sans text-xs font-bold text-[#004B75]">
-                    <span>{t("ver_recorrido")}</span>
-                    <div className="h-6 w-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-[#004B75] group-hover:text-white transition">
-                      <Eye className="h-3.5 w-3.5" />
-                    </div>
-                  </div>
+            {/* Gallery Info Panel Overlay */}
+            <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between text-white z-20 pointer-events-none">
+              {/* Top Row: Badge and Counters */}
+              <div className="flex justify-between items-center w-full pointer-events-auto">
+                <div className="flex items-center gap-2 rounded-full bg-black/45 backdrop-blur-md px-3.5 py-1.5 border border-white/10">
+                  <Sparkles className="h-4 w-4 text-amber-400" />
+                  <span className="font-sans text-2xs md:text-xs font-black uppercase tracking-wider text-gray-100">
+                    {language === "en" ? "Wyndham Bogotá Spaces" : "Espacios Wyndham Bogotá"}
+                  </span>
                 </div>
-              );
-            })}
+                <div className="font-mono text-2xs md:text-sm text-white bg-black/45 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 tracking-widest font-bold">
+                  {currentImageIndex + 1} / {GALLERY_IMAGES.length}
+                </div>
+              </div>
+
+              {/* Bottom Row: Text Captions and Slider Indicator Dots */}
+              <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-5 mt-auto pointer-events-auto">
+                <div className="max-w-2xl bg-black/20 backdrop-blur-xs p-4 rounded-2xl border border-white/5 md:bg-transparent md:border-none md:p-0">
+                  <h3 className="font-sans text-xl md:text-3xl font-black text-white tracking-tight drop-shadow-md">
+                    {language === "en" ? GALLERY_IMAGES[currentImageIndex].titleEn : GALLERY_IMAGES[currentImageIndex].titleEs}
+                  </h3>
+                  <p className="font-sans text-xs md:text-sm text-gray-200 mt-2 leading-relaxed drop-shadow-sm font-medium">
+                    {language === "en" ? GALLERY_IMAGES[currentImageIndex].descEn : GALLERY_IMAGES[currentImageIndex].descEs}
+                  </p>
+                </div>
+                
+                {/* Visual Dot Indicators */}
+                <div className="flex gap-2 justify-start md:justify-end items-center shrink-0">
+                  {GALLERY_IMAGES.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        idx === currentImageIndex ? "w-8 bg-amber-400" : "w-2.5 bg-white/40 hover:bg-white/70"
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* High-Craftsmanship Auto-Cycling Timeline Progress Bar */}
+            <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-black/30 z-20">
+              <motion.div
+                key={currentImageIndex}
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 8, ease: "linear" }}
+                className="h-full bg-amber-400"
+              />
+            </div>
           </div>
         </section>
 

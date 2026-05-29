@@ -459,104 +459,7 @@ export const SALONES_DATA: SalonVenue[] = [
     ],
     locationDesc: "Sótano 1, extremo oriental contiguo a zona de servicios.",
     locationDescEn: "Basement 1, eastern end contiguous to service area."
-  },
- /* {
-    id: "salon-lounge",
-    name: "Salón Lounge Ejecutivos",
-    nameEn: "Executive Lounge Room",
-    description: "Prestigioso espacio VIP del hotel diseñado para encuentros corporativos exclusivos, dinámicas de networking corporativo y eventos selectos de co-working.",
-    descriptionEn: "Prestigious VIP venue of the hotel designed for exclusive corporate gatherings, corporate networking events, and select VIP co-working schedules.",
-    capacity: 30,
-    dimensions: "95 m²",
-    floor: "Piso 2",
-    floorEn: "Floor 2",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80"
-    ],
-    matterportUrl: "",
-    amenities: [
-      "Zonas de lounge semi-privadas de alto confort",
-      "Servicio permanente de café gourmet y bocadillos premium",
-      "Soporte de conserjería dedicado"
-    ],
-    amenitiesEn: [
-      "High-comfort semi-private lounge zones",
-      "All-day gourmet coffee and premium finger food service",
-      "Dedicated concierge support"
-    ],
-    setups: [
-      { type: "Auditorio", typeEn: "Auditorium", capacity: 30, iconName: "Presentation" },
-      { type: "Tipo U", typeEn: "U-Shape", capacity: 24, iconName: "Users" },
-      { type: "Mesa Imperial", typeEn: "Boardroom", capacity: 20, iconName: "Briefcase" },
-      { type: "Cóctel", typeEn: "Cocktail", capacity: 30, iconName: "Wine" }
-    ],
-    locationDesc: "Piso 2, entrada directa con credencial VIP en el ala izquierda del foyer central.",
-    locationDescEn: "Floor 2, direct entrance with VIP card at the left wing of central foyer."
-  },
-  {
-    id: "salon-mesa-chef",
-    name: "Mesa del Chef",
-    nameEn: "Chef's Table",
-    description: "Experiencia culinaria ultra-exclusiva ideal para cenas comerciales de alta dirección e incentivos gourmet especiales maridados por nuestro chef ejecutivo.",
-    descriptionEn: "Ultra-exclusive culinary experience perfect for high-level business board diners and tailored gourmet incentives curated by our executive chef.",
-    capacity: 12,
-    dimensions: "35 m²",
-    floor: "Piso 1",
-    floorEn: "Floor 1",
-    image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80"
-    ],
-    matterportUrl: "",
-    amenities: [
-      "Cocina de exhibición en directo",
-      "Menú degustación personalizado de 7 tiempos",
-      "Servicio de sommelier dedicado"
-    ],
-    amenitiesEn: [
-      "Live show kitchen setups",
-      "Customized 7-course tasting menu pairing",
-      "Dedicated sommelier service"
-    ],
-    setups: [
-      { type: "Mesa Imperial", typeEn: "Boardroom", capacity: 12, iconName: "Briefcase" }
-    ],
-    locationDesc: "Piso 1, contiguo al Restaurante Madrigal.",
-    locationDescEn: "Floor 1, adjacent to Madrigal Restaurant."
-  },
-  {
-   id: "salon-suite-presidencial",
-    name: "Mesa VIP Suite Presidencial",
-    nameEn: "Presidential Suite Boardroom",
-    description: "El espacio de mayor prestigio corporativo en el último piso del hotel. Reúne el confort de nuestra suite presidencial con una magnífica mesa imperial idónea para firmas de contratos y comités.",
-    descriptionEn: "The most prestigious corporate hosting space on the hotel's top floor. Blends presidential luxury dining setups with a magnificent board design for high profile meetings and agreements.",
-    capacity: 30,
-    dimensions: "120 m²",
-    floor: "Piso 5",
-    floorEn: "Floor 5",
-    image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80"
-    ],
-    matterportUrl: "",
-    amenities: [
-      "Entrada privada de alta seguridad VIP",
-      "Terraza panorámica privada con vista a Bogotá",
-      "Bar de licores premium importados de cortesía"
-    ],
-    amenitiesEn: [
-      "High security private entrance",
-      "Panoramic privatized cityscape view over Bogota",
-      "Complimentary bar of imported premium spirits"
-    ],
-    setups: [
-      { type: "Mesa Imperial", typeEn: "Boardroom", capacity: 16, iconName: "Briefcase" },
-      { type: "Cóctel", typeEn: "Cocktail", capacity: 30, iconName: "Wine" }
-    ],
-    locationDesc: "Piso 5, Suite Presidencial (acceso restringido mediante ascensor VIP).",
-    locationDescEn: "Floor 5, Presidential Suite (restricted access via VIP keycard lift)."
- }
+  }
 ];
 
 export const ROOMS_DATA: HotelRoom[] = [
@@ -626,7 +529,7 @@ export const ROOMS_DATA: HotelRoom[] = [
     ],
     features: ["Ventanas de Piso a Techo", "Check-in Prioritario VIP", "Clasificada como de Alta Experiencia"]
   }
-];*/
+];
 
 export const DINING_DATA: DiningVenue[] = [
   {
